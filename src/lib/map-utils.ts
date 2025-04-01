@@ -1,4 +1,3 @@
-
 // Initialize Google Map
 export const initMap = (
   element: HTMLElement
@@ -23,15 +22,13 @@ export const initMap = (
     zoomControlOptions: {
       position: google.maps.ControlPosition.RIGHT_CENTER,
     },
-    scaleControl: true,
+    scaleControl: true, // Enable scale control directly in the map options
   };
 
   const map = new google.maps.Map(element, mapOptions);
   
-  // Add scale bar
-  const scaleControl = new google.maps.ScaleControl();
-  map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(scaleControl.getDiv());
-
+  // No need to manually add a ScaleControl as it's already enabled in the options
+  
   return map;
 };
 
