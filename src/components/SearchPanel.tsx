@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Search, X, MapPin } from 'lucide-react';
+import { loadGoogleMapsAPI } from '@/lib/load-google-maps';
 
 interface SearchPanelProps {
   mapInstance: google.maps.Map | null;
@@ -18,11 +19,13 @@ const SearchPanel: React.FC<SearchPanelProps> = ({ mapInstance, onClose }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!mapInstance || !window.google || !window.google.maps || !window.google.maps.places) {
+    if (!mapInstance || !inputRef.current) {
       return;
     }
 
-    if (inputRef.current) {
+    const initSearchBox = async () => {
+      await loadGoogleMapsAPI();
+      
       searchBoxRef.current = new google.maps.places.SearchBox(inputRef.current);
       
       searchBoxRef.current.addListener('places_changed', () => {
@@ -47,11 +50,13 @@ const SearchPanel: React.FC<SearchPanelProps> = ({ mapInstance, onClose }) => {
           searchBoxRef.current.setBounds(bounds);
         }
       });
-    }
+    };
+
+    initSearchBox();
     
     // Clean up
     return () => {
-      if (searchBoxRef.current && window.google) {
+      if (searchBoxRef.current) {
         google.maps.event.clearInstanceListeners(searchBoxRef.current);
       }
     };

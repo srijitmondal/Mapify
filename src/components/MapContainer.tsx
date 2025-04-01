@@ -1,7 +1,7 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { initMap } from '@/lib/map-utils';
+import { loadGoogleMapsAPI } from '@/lib/load-google-maps';
 
 interface MapContainerProps {
   setMapInstance: (map: google.maps.Map) => void;
@@ -18,22 +18,7 @@ const MapContainer: React.FC<MapContainerProps> = ({ setMapInstance }) => {
     const initializeMap = async () => {
       try {
         // Wait for Google Maps API to be fully loaded
-        if (!window.google || !window.google.maps) {
-          const waitForGoogleMaps = () => {
-            return new Promise<void>((resolve) => {
-              const checkGoogleMaps = () => {
-                if (window.google && window.google.maps) {
-                  resolve();
-                } else {
-                  setTimeout(checkGoogleMaps, 100);
-                }
-              };
-              checkGoogleMaps();
-            });
-          };
-          
-          await waitForGoogleMaps();
-        }
+        await loadGoogleMapsAPI();
         
         const map = initMap(mapRef.current);
         setMapInstance(map);
