@@ -11,9 +11,8 @@ Mapify Editor is an advanced geospatial mapping tool designed to process and dis
 - 🗺 **Interactive Map Interface** (Pan, Zoom, and Layer Controls)
 - 🔄 **Route Mapping** (Displays movement paths on the map)
 - 📊 **Data Analytics** (Basic insights and heatmaps)
-- 💾 **Import/Export Data** (Support for CSV/JSON format)
-- 📡 **GPS Integration** (If connected with live tracking devices)
-- 🌍 **Multi-layer Support** (Satellite, Street, and Custom maps)
+- 💾 **Import/Export Data** (Support for GEOJSON format)
+- 🌍 **Multi-layer Support** (Satellite, Street, and default map)
 
 ## 🚀 Installation
 
