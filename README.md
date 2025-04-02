@@ -39,8 +39,8 @@ npm start    # For web apps
 ```
 
 ## 🛠 Usage
-1. Upload a CSV/JSON file containing latitude-longitude data.
-2. Select a base map (Street, Satellite, or different types of Map layers).
+1. Move to your desired Location on the MAP.
+2. Select a base map (Street, Satellite, or efault Google Maps View).
 4. Analyze routes and extract insights using the provided tools.
 5. Export maps or reports as needed.
 
@@ -49,10 +49,10 @@ npm start    # For web apps
 ![Map View](https://your-image-url.com/map-view.png)
 
 ## 🏗 Technologies Used
-- **Frontend:** HTML, CSS, JavaScript (React.js or Leaflet.js)
+- **Frontend:** HTML, CSS, JavaScript (React.js), Typescript 
 - **Backend:** Node.js
-- **Database:** Firebase / PostgreSQL / MongoDB (if applicable)
-- **Mapping:** Leaflet.js / Google Maps API / Mapbox
+- **Database:** SQL
+- **Mapping:** Google Maps API
 
 ## 📜 License
 This project is licensed under the **MIT License**. Feel free to use and modify it.
